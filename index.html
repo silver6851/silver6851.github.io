@@ -17,6 +17,7 @@
             background-color: #121212;
             color: #eeeeee;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         h1, h2 {
@@ -28,6 +29,76 @@
             max-width: 1200px;
             margin: auto;
             padding: 20px;
+        }
+
+        /* Header minimalista */
+        header {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #eeeeee;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #58a6ff;
+        }
+
+        /* Sección de inicio */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #58a6ff;
+            color: #ffffff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(88, 166, 255, 0.3);
         }
 
         /* Sección de tecnologías */
@@ -163,8 +234,28 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">SilverDev</a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#technologies">Tecnologías</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de inicio -->
+    <section id="inicio" class="hero">
+        <h1>SilverDev</h1>
+        <p>Desarrollador especializado en soluciones tecnológicas innovadoras y eficientes.</p>
+        <a href="#contact" class="btn">Contáctame</a>
+    </section>
+
     <!-- Sección de tecnologías -->
-    <section class="tech-section">
+    <section id="technologies" class="tech-section">
         <h1>Tecnologías</h1>
         <div class="tech-grid">
             <div class="tech-card">
@@ -195,7 +286,7 @@
     </section>
 
     <!-- Sección de proyectos -->
-    <section class="project-section">
+    <section id="projects" class="project-section">
         <h2>Proyectos</h2>
         <div class="project-grid">
             <div class="project-card">
@@ -224,7 +315,7 @@
     </section>
 
     <!-- Sección de contacto -->
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
         <h2>Contáctame</h2>
         <a href="https://discord.com/users/silver6851" target="_blank">
             <i class="fab fa-discord"></i> silver6851
