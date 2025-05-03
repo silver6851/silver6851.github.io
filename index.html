@@ -3,219 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SilverDev - Developer Portfolio</title>
+    <title>Portafolio Minimalista</title>
     <style>
         /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #121212; /* Fondo oscuro minimalista */
-            color: #eeeeee; /* Color de texto claro */
+            background-color: #121212;
+            color: #eeeeee;
             line-height: 1.6;
-            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 20px;
         }
 
-        header {
-            background-color: #1a1a1a;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Sección de tecnologías */
+        .tech-section {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        nav {
+        .tech-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #58a6ff;
-            text-decoration: none;
+        .tech-card {
+            position: relative;
+            text-align: center;
         }
 
-        .nav-links {
+        .tech-card img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .led {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+            box-shadow: 0 0 5px green;
+            animation: blink 1s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Sección de proyectos */
+        .project-section {
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
             display: flex;
-            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: #eeeeee;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .nav-links a:hover {
-            color: #58a6ff;
-        }
-
-        .hero {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #cccccc;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #58a6ff;
-            color: #ffffff;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(88, 166, 255, 0.3);
-        }
-
-        .section-title {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #58a6ff;
-        }
-
-        .tech-grid, .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .tech-card, .project-card {
+        .project-card {
             background-color: #1a1a1a;
+            border: 2px solid #58a6ff;
             border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .tech-card:hover, .project-card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .project-img img {
+        .project-card img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
         }
 
-        footer {
-            background-color: #1a1a1a;
-            padding: 20px 0;
-            text-align: center;
-            color: #cccccc;
+        .project-content {
+            padding: 20px;
         }
 
-        .social-links a {
+        .project-content h3 {
+            margin-bottom: 10px;
             color: #58a6ff;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: transform 0.3s ease-in-out;
         }
 
-        .social-links a:hover {
-            transform: translateY(-5px);
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tech-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Sección de contacto */
+        .contact-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-section a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            color: #ffffff;
+        }
+
+        .contact-section a i {
+            font-size: 24px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .project-grid {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Silver<span>Dev</span></a>
-                <ul class="nav-links">
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#technologies">Tecnologías</a></li>
-                    <li><a href="#projects">Proyectos</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>SilverDev</h1>
-            <p>Desarrollador especializado en crear soluciones tecnológicas innovadoras y eficientes para diferentes necesidades.</p>
-            <a href="#contact" class="btn">Contáctame</a>
-        </div>
-    </section>
-
-    <!-- Tecnologías -->
-    <section id="technologies" class="technologies">
-        <div class="container">
-            <h2 class="section-title">Tecnologías</h2>
-            <div class="tech-grid">
-                <!-- Aquí van las tarjetas de tecnologías -->
+    <!-- Sección de tecnologías -->
+    <section class="tech-section">
+        <h1>Tecnologías</h1>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                <div class="led"></div>
+            </div>
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                <div class="led"></div>
+            </div>
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <div class="led"></div>
+            </div>
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                <div class="led"></div>
+            </div>
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                <div class="led"></div>
+            </div>
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <div class="led"></div>
             </div>
         </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Proyectos</h2>
-            <div class="project-grid">
-                <!-- Mantén las imágenes e información de Ponal y COLRPG -->
+    <!-- Sección de proyectos -->
+    <section class="project-section">
+        <h2>Proyectos</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="images/ponal.jpg" alt="Bot Ponal">
+                <div class="project-content">
+                    <h3>Bot Ponal</h3>
+                    <p>Usa tecnologías:</p>
+                    <div class="tech-icons">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="images/col.jpg" alt="Bot Col RPG">
+                <div class="project-content">
+                    <h3>Bot Col RPG</h3>
+                    <p>Usa tecnologías:</p>
+                    <div class="tech-icons">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-        </div>
+    <!-- Sección de contacto -->
+    <section class="contact-section">
+        <h2>Contáctame</h2>
+        <a href="https://discord.com/users/silver6851" target="_blank">
+            <i class="fab fa-discord"></i> silver6851
+        </a>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p>&copy; 2025 SilverDev. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 </body>
 </html>
