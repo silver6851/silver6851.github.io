@@ -1,0 +1,76 @@
+/* Efectos de neón y brillos */
+.neon-text {
+    text-shadow: 0 0 10px rgba(0, 195, 255, 0.8),
+                 0 0 20px rgba(0, 195, 255, 0.5),
+                 0 0 30px rgba(0, 195, 255, 0.3);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #ff0080, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 8s ease infinite;
+}
+
+/* Efecto Glassmorphism */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones de botones */
+.pulse-effect {
+    animation: pulse 2s infinite;
+    position: relative;
+}
+
+.pulse-effect::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+    animation: pulseRing 2s infinite;
+}
+
+/* Parallax y efectos de scroll */
+.parallax-container {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.parallax-element {
+    transform-style: preserve-3d;
+    transform: translateZ(-1px) scale(2);
+}
+
+/* Keyframes para las animaciones */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseRing {
+    0% { 
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% { 
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff | Los Angeles Spanish RP</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/staff.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    .staff-hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .staff-hero::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: url('images/grid.png') repeat;
+        opacity: 0.1;
+        animation: gridMove 20s linear infinite;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 15px rgba(0,255,135,0.5));
+    }
+
+    .join-staff-btn {
+        position: relative;
+        padding: 1.5rem 3rem;
+        font-size: 1.2rem;
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        border: none;
+        border-radius: 50px;
+        color: #000428;
+        font-weight: bold;
+        cursor: pointer;
+        overflow: hidden;
+        margin: 2rem 0 4rem 0;
+        transition: transform 0.3s ease;
+        z-index: 1;
+    }
+
+    .btn-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hover-effect {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%
+        );
+        transition: left 0.5s ease;
+    }
+
+    .join-staff-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 255, 135, 0.3);
+    }
+
+    .join-staff-btn:hover .hover-effect {
+        left: 100%;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .stat-box {
+        background: rgba(255,255,255,0.05);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+        transform: translateY(-10px);
+        background: rgba(255,255,255,0.1);
+        box-shadow: 0 10px 30px rgba(0,255,135,0.2);
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes gridMove {
+        0% { transform: translateX(0) translateY(0); }
+        100% { transform: translateX(-50%) translateY(-50%); }
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+    }
+
+    /* Mejoras de legibilidad para el modal */
+    .modal-content {
+        position: relative;
+        width: 95%;
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding-top: 4rem; /* Espacio para los botones fijos */
+        background: rgba(0, 0, 0, 0.97);
+        border: 2px solid rgba(0, 255, 135, 0.2);
+        box-shadow: 0 0 50px rgba(0, 255, 135, 0.1);
+        padding: 3rem;
+    }
+
+    .modal-content {
+        padding: 2rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
+        border-bottom: 2px solid rgba(0, 255, 135, 0.2);
+    }
+
+    .modal-header h2 {
+        font-size: 3rem;
+        text-shadow: 0 0 10px rgba(0, 255, 135, 0.5);
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .modal-header p {
+        font-size: 1.4rem;
+        color: #fff;
+        text-shadow: 0 0 5px rgba(0, 255, 135, 0.3);
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .step {
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(0, 255, 135, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 450px;
+    }
+
+    .step h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        white-space: normal;
+        line-height: 1.3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .step p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+
+    .step ul {
+        margin: 1rem 0;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        list-style: none;
+    }
+
+    .step li {
+        padding: 0.8rem 0;
+        padding-left: 2rem;
+        position: relative;
+        line-height: 1.4;
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .step li i {
+        position: absolute;
+        left: 0;
+        top: 1rem;
+        color: #00ff87;
+    }
+
+    .step-link {
+        margin-top: auto; /* Empuja el botón al fondo */
+        align-self: flex-start; /* Alinea el botón a la izquierda */
+    }
+
+    /* Botones del modal */
+    .modal-buttons {
+        position: sticky;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+
+    .close-btn {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        border: none;
+        border-radius: 5px;
+        color: #000428;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 255, 135, 0.5);
+    }
+
+    /* Añadir estos estilos */
+    .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .stat-box {
+        background: rgba(255,255,255,0.1);
+        padding: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+        transform: translateY(-10px);
+        background: rgba(255,255,255,0.15);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 1rem 0;
+    }
+
+    .stat-label {
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+    }
+
+    /* Mejoras visuales para los requisitos */
+    .requirements-box {
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 15px;
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 255, 135, 0.2);
+        margin: 1rem 0;
+    }
+
+    .stat-highlight {
+        font-size: 2.2rem;
+        padding: 0.2rem 0;
+        font-weight: bold;
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        margin: 0.5rem 0;
+        animation: countUp 2s ease-out forwards;
+    }
+
+    .requirement-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .requirement-item:hover {
+        transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .requirement-icon {
+        font-size: 1.8rem;
+        color: #00ff87;
+        animation: pulse 2s infinite;
+    }
+
+    .requirement-info {
+        text-align: left;
+    }
+
+    .requirement-label {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .requirement-value {
+        font-size: 1.3rem;
+        color: #fff;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    @keyframes countUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Partículas del botón */
+    .btn-particles {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 1px;
+    }
+
+    .btn-particles::before,
+    .btn-particles::after {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: rgba(0,255,135,0.2);
+        border-radius: 50%;
+        animation: ripple 2s linear infinite;
+    }
+
+    @keyframes ripple {
+        0% { transform: scale(0); opacity: 1; }
+        100% { transform: scale(1); opacity: 0; }
+    }
+
+    /* Ajustes para el modal y scroll */
+    .modal {
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        position: relative;
+        width: 95%;
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding-top: 4rem; /* Espacio para los botones fijos */
+        background: rgba(0, 0, 0, 0.97);
+        border: 2px solid rgba(0, 255, 135, 0.2);
+        box-shadow: 0 0 50px rgba(0, 255, 135, 0.1);
+        padding: 3rem;
+    }
+
+    /* Botones de navegación fijos */
+    .modal-nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 255, 135, 0.2);
+    }
+
+    .back-btn, .close-btn {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .back-btn {
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        color: #000428;
+    }
+
+    .close-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .back-btn:hover, .close-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 255, 135, 0.3);
+    }
+
+    .step-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(0, 255, 135, 0.2);
+    }
+
+    .step-header h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        white-space: normal;
+        line-height: 1.3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .step-header h3 i {
+        font-size: 2rem;
+        color: #00ff87;
+    }
+
+    .step-header p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+
+    .step-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Añadir estilos del banner */
+    .banner {
+        position: relative;
+        width: 100%;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        overflow: hidden;
+    }
+
+    .banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            linear-gradient(45deg, rgba(255,0,98,0.1) 0%, rgba(255,0,98,0) 70%),
+            linear-gradient(-45deg, rgba(0,238,255,0.1) 0%, rgba(0,238,255,0) 70%);
+        z-index: 1;
+    }
+
+    .banner .overlay {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .banner-title-decor {
+        display: inline-block;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .banner-title-decor::before,
+    .banner-title-decor::after {
+        content: '⚡';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: #FFD700;
+        opacity: 0.8;
+    }
+
+    .banner-title-decor::before { left: -10px; }
+    .banner-title-decor::after { right: -10px; }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav a:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,255,135,0.2);
+    }
+
+    nav a i {
+        font-size: 1.2rem;
+        color: #00ff87;
+    }
+
+    nav a.discord-btn {
+        background: linear-gradient(45deg, #00ff87, #60efff);
+        color: #000428;
+        font-weight: bold;
+    }
+
+    nav a.discord-btn i {
+        color: #000428;
+    }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="overlay">
+            <h1 class="banner-title">
+                <span class="banner-title-decor">🚔 Los Angeles Spanish RP 🚔</span>
+            </h1>
+            <nav>
+                <a href="index.html">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="events.html">
+                    <i class="fas fa-calendar-alt"></i> Eventos
+                </a>
+                <a href="roles.html">
+                    <i class="fas fa-user"></i> Roles
+                </a>
+                <a href="team.html">
+                    <i class="fas fa-users"></i> Equipo
+                </a>
+                <a href="staff.html">
+                    <i class="fas fa-shield-alt"></i> Staff
+                </a>
+                <a href="rules.html">
+                    <i class="fas fa-book"></i> Normativas
+                </a>
+                <a href="discord.html" class="discord-btn">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="staff-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="glow-text">Únete a Nuestro Staff</span>
+            </h1>
+            <p class="hero-subtitle">Sé parte del equipo que hace la magia posible</p>
+            
+            <button class="join-staff-btn" onclick="showModal()">
+                <span class="btn-content">
+                    <i class="fas fa-shield-alt"></i>
+                    ¡Quiero ser parte!
+                </span>
+                <span class="hover-effect"></span>
+            </button>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fas fa-users-cog fa-2x"></i>
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Staff Activos</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <span class="stat-number" data-target="1000">0</span>
+                    <span class="stat-label">Horas de Servicio</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-star fa-2x"></i>
+                    <span class="stat-number" data-target="95">0</span>
+                    <span class="stat-label">% Satisfacción</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actualizar estructura del modal -->
+    <div id="staffModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-nav">
+                <button class="back-btn" onclick="closeModal()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+            </div>
+            
+            <div class="modal-header">
+                <h2><i class="fas fa-star"></i> Proceso para unirte al Staff</h2>
+                <p>Sigue estos pasos para formar parte de nuestro equipo</p>
+            </div>
+            
+            <div class="steps">
+                <!-- Paso 1: Discord -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3><i class="fab fa-discord"></i> Paso 1: Discord</h3>
+                        <p>Únete a nuestro servidor oficial</p>
+                    </div>
+                    <div class="step-content">
+                        <div class="requirements-box">
+                            <div class="requirement-item">
+                                <div class="requirement-icon">💬</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Canal</div>
+                                    <div class="requirement-value">#📥・solicitudes-staff</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">📋</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Normas</div>
+                                    <div class="requirement-value">Lectura obligatoria</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="discord.html" class="step-link">
+                            <i class="fab fa-discord"></i> Unirse al Discord
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Paso 2: Requisitos -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3><i class="fas fa-clipboard-check"></i> Paso 2: Requisitos</h3>
+                        <p>Requisitos mínimos necesarios</p>
+                    </div>
+                    <div class="step-content">
+                        <div class="requirements-box">
+                            <div class="requirement-item">
+                                <div class="requirement-icon">👤</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Edad Mínima</div>
+                                    <div class="requirement-value">
+                                        <span class="stat-highlight" data-value="18">0</span> años
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="requirement-item">
+                                <div class="requirement-icon">⏰</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Horas en Servidor</div>
+                                    <div class="requirement-value">
+                                        <span class="stat-highlight" data-value="100">0</span>+ horas
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="requirement-item">
+                                <div class="requirement-icon">📅</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Disponibilidad</div>
+                                    <div class="requirement-value">
+                                        <span class="stat-highlight" data-value="20">0</span> hrs/semana
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3: Aplicación -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3><i class="fas fa-file-alt"></i> Paso 3: Aplicación</h3>
+                        <p>Completa tu solicitud</p>
+                    </div>
+                    <div class="step-content">
+                        <div class="requirements-box">
+                            <div class="requirement-item">
+                                <div class="requirement-icon">📝</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Formulario</div>
+                                    <div class="requirement-value">Datos personales</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">🎯</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Motivación</div>
+                                    <div class="requirement-value">Carta de presentación</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">🎮</div>
+                                <div class="requirement-info">
+                                    <div class="requirement-label">Experiencia</div>
+                                    <div class="requirement-value">Historial RP</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="step-link">
+                            <i class="fas fa-external-link-alt"></i> Rellenar Formulario
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function showModal() {
+        const modal = document.getElementById('staffModal');
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevenir scroll en el body
+        
+        // Animación de entrada para cada paso
+        document.querySelectorAll('.step').forEach((step, index) => {
+            setTimeout(() => {
+                step.style.transform = 'translateX(0)';
+                step.style.opacity = '1';
+            }, index * 200);
+        });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('staffModal');
+        document.body.style.overflow = 'auto'; // Restaurar scroll
+        
+        // Animación de salida
+        document.querySelectorAll('.step').forEach(step => {
+            step.style.transform = 'translateX(-20px)';
+            step.style.opacity = '0';
+        });
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    // Cerrar modal al hacer clic fuera
+    window.onclick = function(event) {
+        const modal = document.getElementById('staffModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Añadir este script para los contadores
+    function animateNumber(el, target) {
+        let current = 0;
+        const time = 2000;
+        const step = target / (time / 16);
+
+        const counter = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                el.textContent = target;
+                clearInterval(counter);
+            } else {
+                el.textContent = Math.floor(current);
+            }
+        }, 16);
+    }
+
+    // Animar los requisitos
+    function animateRequirements() {
+        document.querySelectorAll('.stat-highlight').forEach(stat => {
+            const value = parseInt(stat.dataset.value);
+            let current = 0;
+            const increment = value / 40;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= value) {
+                    stat.textContent = value;
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(current);
+                }
+            }, 50);
+        });
+    }
+
+    // Iniciar animaciones cuando los elementos son visibles
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target.getAttribute('data-target');
+                animateNumber(entry.target, parseInt(target));
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+
+    // Modificar la función showModal
+    function showModal() {
+        const modal = document.getElementById('staffModal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Animar los requisitos después de mostrar el modal
+        setTimeout(animateRequirements, 500);
+        
+        // Animación de entrada para cada paso
+        document.querySelectorAll('.step').forEach((step, index) => {
+            setTimeout(() => {
+                step.style.transform = 'translateX(0)';
+                step.style.opacity = '1';
+            }, index * 200);
+        });
+    }
+    </script>
+</body>
+</html>
