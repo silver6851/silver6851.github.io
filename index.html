@@ -3,323 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Minimalista</title>
+    <title>Los Angeles Spanish RP | Servidor de Roleplay</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <!-- GSAP para animaciones avanzadas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Font Awesome y fuentes personalizadas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    .banner {
+        position: relative;
+        width: 100%;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        overflow: hidden;
+    }
 
-        body {
-            background-color: #121212;
-            color: #eeeeee;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    .banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            linear-gradient(45deg, rgba(255,0,98,0.1) 0%, rgba(255,0,98,0) 70%),
+            linear-gradient(-45deg, rgba(0,238,255,0.1) 0%, rgba(0,238,255,0) 70%);
+        z-index: 1;
+    }
 
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .banner .overlay {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
+    .banner-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 3rem;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin: 0;
+        padding: 20px 0;
+        text-shadow: 
+            0 0 10px rgba(255,255,255,0.5),
+            0 0 20px rgba(255,255,255,0.3),
+            0 0 30px rgba(255,255,255,0.2);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
 
-        /* Header minimalista */
-        header {
-            background-color: #1a1a1a;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-        }
+    .banner-title-decor {
+        display: inline-block;
+        padding: 0 20px;
+        position: relative;
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #58a6ff;
-            text-decoration: none;
-        }
+    .banner-title-decor::before,
+    .banner-title-decor::after {
+        content: '⚡';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: #FFD700;
+        opacity: 0.8;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
+    .banner-title-decor::before { left: -10px; }
+    .banner-title-decor::after { right: -10px; }
 
-        nav ul li a {
-            color: #eeeeee;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
 
-        nav ul li a:hover {
-            color: #58a6ff;
-        }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+    }
 
-        /* Sección de inicio */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
+    nav a:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+    }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
+    nav a i {
+        margin-right: 8px;
+        color: #FFD700;
+    }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            color: #cccccc;
+    /* Animación de resplandor */
+    @keyframes glow {
+        from {
+            text-shadow: 
+                0 0 10px rgba(255,255,255,0.5),
+                0 0 20px rgba(255,255,255,0.3),
+                0 0 30px rgba(255,255,255,0.2);
         }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #58a6ff;
-            color: #ffffff;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        to {
+            text-shadow: 
+                0 0 20px rgba(255,255,255,0.6),
+                0 0 30px rgba(255,255,255,0.4),
+                0 0 40px rgba(255,255,255,0.3);
         }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(88, 166, 255, 0.3);
-        }
-
-        /* Sección de tecnologías */
-        .tech-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .tech-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .tech-card {
-            position: relative;
-            text-align: center;
-        }
-
-        .tech-card img {
-            width: 80px;
-            height: 80px;
-        }
-
-        .led {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 10px;
-            height: 10px;
-            background-color: green;
-            border-radius: 50%;
-            box-shadow: 0 0 5px green;
-            animation: blink 1s infinite ease-in-out;
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        /* Sección de proyectos */
-        .project-section {
-            margin-bottom: 40px;
-        }
-
-        .project-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .project-card {
-            background-color: #1a1a1a;
-            border: 2px solid #58a6ff;
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 300px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            margin-bottom: 10px;
-            color: #58a6ff;
-        }
-
-        .tech-icons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .tech-icons img {
-            width: 30px;
-            height: 30px;
-        }
-
-        /* Sección de contacto */
-        .contact-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-section a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: #58a6ff;
-            text-decoration: none;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .contact-section a:hover {
-            color: #ffffff;
-        }
-
-        .contact-section a i {
-            font-size: 24px;
-        }
-
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .project-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
+    }
     </style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">SilverDev</a>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#technologies">Tecnologías</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
+    <header class="banner">
+        <div class="overlay">
+            <h1 class="banner-title">
+                <span class="banner-title-decor">🚔 Los Angeles Spanish RP 🚔</span>
+            </h1>
+            <nav>
+                <a href="index.html#welcome">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="events.html">
+                    <i class="fas fa-calendar-alt"></i> Eventos
+                </a>
+                <a href="roles.html">
+                    <i class="fas fa-user"></i> Roles
+                </a>
+                <a href="team.html">
+                    <i class="fas fa-users"></i> Equipo
+                </a>
+                <a href="rules.html">
+                    <i class="fas fa-book"></i> Reglas
+                </a>
+                <a href="staff.html">
+                    <i class="fas fa-shield-alt"></i> Staff
+                </a>
+                <a href="discord.html" class="discord-btn">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Sección de inicio -->
-    <section id="inicio" class="hero">
-        <h1>SilverDev</h1>
-        <p>Desarrollador especializado en soluciones tecnológicas innovadoras y eficientes.</p>
-        <a href="#contact" class="btn">Contáctame</a>
-    </section>
+    <div class="main-content">
+        <section id="team" class="team-section">
+            <h3><i class="fas fa-users"></i> Nuestro Equipo</h3>
+            <div class="team-carousel vertical-team" id="teamCarousel">
+                <!-- Team members will be dynamically populated -->
+            </div>
+        </section>
 
-    <!-- Sección de tecnologías -->
-    <section id="technologies" class="tech-section">
-        <h1>Tecnologías</h1>
-        <div class="tech-grid">
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-                <div class="led"></div>
-            </div>
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-                <div class="led"></div>
-            </div>
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                <div class="led"></div>
-            </div>
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-                <div class="led"></div>
-            </div>
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                <div class="led"></div>
-            </div>
-            <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                <div class="led"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de proyectos -->
-    <section id="projects" class="project-section">
-        <h2>Proyectos</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="images/ponal.jpg" alt="Bot Ponal">
-                <div class="project-content">
-                    <h3>Bot Ponal</h3>
-                    <p>Usa tecnologías:</p>
-                    <div class="tech-icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+        <section id="welcome" class="welcome-section">
+            <h2><i class="fas fa-city"></i> Bienvenido a Los Angeles</h2>
+            <p>Explora las calles, únete a una banda o protege la ciudad como oficial de policía. 🚔</p>
+            
+            <div class="welcome-content">
+                <div id="next-event" class="next-event-preview">
+                    <h3><i class="fas fa-calendar-alt"></i> Próximo Evento</h3>
+                    <div class="event-card featured">
+                        <div class="event-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('images/police-raid.jpg')">
+                            <span class="event-tag mega-operation">💀 Mega Operativo SWAT</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Operación "Black Dawn"</h3>
+                            <p class="event-date"><i class="far fa-calendar"></i> HOY 20:00</p>
+                            <p class="event-desc">Gran operativo policial contra el narcotráfico. Se necesitan oficiales LAPD.</p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 20 cupos</span>
+                                <span><i class="fas fa-money-bill"></i> $5000</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="images/Captura de pantalla 2025-04-05 090209.png" alt="Bot Col RPG">
-                <div class="">
-                    <h3>Bot Col RPG</h3>
-                    <p>Usa tecnologías:</p>
-                    <div class="tech-icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección de contacto -->
-    <section id="contact" class="contact-section">
-        <h2>Contáctame</h2>
-        <a href="https://discord.com/users/silver6851" target="_blank">
-            <i class="fab fa-discord"></i> silver6851
-        </a>
-    </section>
+        <section id="roles" class="roles-section">
+            <h3><i class="fas fa-user"></i> Roles Disponibles</h3>
+            <div class="roles-grid">
+                <!-- Roles will be dynamically populated -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Los Angeles RP 🚔 | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>
