@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/Silver-portfolio/', // Cambia esto por el nombre de tu repositorio
+  base: '/', // Para repositorios username.github.io no necesita subdirectorio
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
