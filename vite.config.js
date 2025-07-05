@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: './', // Usar rutas relativas para GitHub Pages
+  base: './', // Rutas relativas para evitar problemas de cache
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
