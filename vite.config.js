@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/', // Para repositorios username.github.io no se necesita subdirectorio
+  base: './', // Usar rutas relativas para GitHub Pages
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
