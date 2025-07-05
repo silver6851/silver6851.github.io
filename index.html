@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silver - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Cursor personalizado -->
+      <div class="cursor"></div>
+      <div class="cursor-follower"></div>
+      
+      <!-- Particles background -->
+      <div id="particles-js"></div>
+      
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <span class="logo-text">Silver</span>
+          </div>
+          <div class="nav-menu">
+            <a href="#home" class="nav-link">Inicio</a>
+            <a href="#about" class="nav-link">Sobre mí</a>
+            <a href="#skills" class="nav-link">Habilidades</a>
+            <a href="#projects" class="nav-link">Proyectos</a>
+            <a href="#contact" class="nav-link">Contacto</a>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Hola, soy <span class="typing-container">
+                <span class="typing-text" id="typing-text"></span>
+                <span class="cursor-typing">|</span>
+              </span>
+            </h1>
+            <p class="hero-subtitle">Desarrollador Full Stack & Creador Digital</p>
+            <p class="hero-description">
+              Transformando ideas en experiencias digitales extraordinarias desde Colombia 🇨🇴
+            </p>
+          </div>
+          <div class="hero-image">
+            <div class="floating-card">
+              <div class="profile-avatar">
+                <i class="fas fa-code"></i>
+                <div class="avatar-glow"></div>
+              </div>
+              <div class="card-glow"></div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="scroll-arrow"></div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="about-content">
+            <div class="about-text-center">
+              <p class="about-description">
+                Soy un desarrollador apasionado por crear soluciones innovadoras y experiencias de usuario excepcionales. 
+                Con más de 3 años de experiencia en desarrollo web desde Colombia, me especializo en tecnologías modernas y siempre 
+                estoy buscando nuevos desafíos para crear aplicaciones que marquen la diferencia.
+              </p>
+              <div class="about-stats">
+                <div class="stat-item">
+                  <span class="stat-number" data-target="10">0</span>
+                  <span class="stat-label">Proyectos Completados</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="3">0</span>
+                  <span class="stat-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="15">0</span>
+                  <span class="stat-label">Clientes Satisfechos</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-image">
+              <div class="code-illustration">
+                <div class="code-window">
+                  <div class="window-header">
+                    <div class="window-controls">
+                      <span class="control red"></span>
+                      <span class="control yellow"></span>
+                      <span class="control green"></span>
+                    </div>
+                    <span class="window-title">portfolio.js</span>
+                  </div>
+                  <div class="code-content">
+                    <div class="code-line">
+                      <span class="line-number">1</span>
+                      <span class="code-text"><span class="keyword">const</span> <span class="variable">developer</span> = {</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-number">2</span>
+                      <span class="code-text">  <span class="property">name</span>: <span class="string">'Silver'</span>,</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-number">3</span>
+                      <span class="code-text">  <span class="property">location</span>: <span class="string">'Medellín'</span>,</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-number">4</span>
+                      <span class="code-text">  <span class="property">skills</span>: [<span class="string">'Discord.js'</span>, <span class="string">'Web Dev'</span>],</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-number">5</span>
+                      <span class="code-text">  <span class="property">passion</span>: <span class="string">'Coding'</span></span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-number">6</span>
+                      <span class="code-text">};</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="skills-grid">
+            <!-- Frontend Skills -->
+            <div class="skill-category frontend">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fab fa-html5"></i>
+                </div>
+                <h3>Frontend</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-html5"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">HTML5</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                      </div>
+                      <span class="skill-percentage">95%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-css3-alt"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">CSS3</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">90%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-js-square"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">JavaScript</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">88%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-react"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">React</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">85%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Backend Skills -->
+            <div class="skill-category backend">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-server"></i>
+                </div>
+                <h3>Backend</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-node-js"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">Node.js</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">80%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">MongoDB</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">75%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">Python</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">70%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tools Skills -->
+            <div class="skill-category tools">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-tools"></i>
+                </div>
+                <h3>Herramientas</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-git-alt"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">Git</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">90%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-figma"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">Figma</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">85%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fab fa-docker"></i>
+                  </div>
+                  <div class="skill-info">
+                    <span class="skill-name">Docker</span>
+                    <div class="skill-level">
+                      <div class="skill-dots">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </div>
+                      <span class="skill-percentage">65%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="projects-grid">
+            <div class="project-card featured">
+              <div class="project-header">
+                <div class="project-status">
+                  <span class="status-badge featured">Destacado</span>
+                  <span class="project-year">2024</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://alto-studios.com/" target="_blank" class="action-btn demo" title="Ver Sitio Web">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a href="#" class="action-btn code disabled" title="Código Privado">
+                    <i class="fas fa-lock"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="project-preview">
+                <div class="project-mockup">
+                  <div class="mockup-browser">
+                    <div class="browser-header">
+                      <div class="browser-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <div class="browser-url">alto-studios.com</div>
+                    </div>
+                    <div class="browser-content">
+                      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Alto Studios Website">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <h3 class="project-title">
+                  <i class="fas fa-globe"></i>
+                  Alto Studios - Website
+                </h3>
+                <p class="project-description">
+                  Sitio web profesional para Alto Studios, diseñado con una interfaz moderna y responsiva. 
+                  Incluye portfolio de trabajos, servicios y sistema de contacto optimizado para conversiones.
+                </p>
+                
+                <div class="project-features">
+                  <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Responsive</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Optimizado</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fas fa-palette"></i>
+                    <span>UI/UX</span>
+                  </div>
+                </div>
+                
+                <div class="project-tech">
+                  <span class="tech-tag html">HTML5</span>
+                  <span class="tech-tag css">CSS3</span>
+                  <span class="tech-tag js">JavaScript</span>
+                  <span class="tech-tag responsive">Bootstrap</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-header">
+                <div class="project-status">
+                  <span class="status-badge completed">Activo</span>
+                  <span class="project-year">2024</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://discord.gg/HM4ybusBA2" target="_blank" class="action-btn demo" title="Ver Discord">
+                    <i class="fab fa-discord"></i>
+                  </a>
+                  <a href="#" class="action-btn code disabled" title="Código Privado">
+                    <i class="fas fa-lock"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="project-preview">
+                <div class="project-mockup">
+                  <div class="mockup-discord">
+                    <div class="discord-sidebar">
+                      <div class="discord-server">
+                        <div class="server-icon">LA</div>
+                      </div>
+                      <div class="discord-channels">
+                        <div class="channel-item"># general</div>
+                        <div class="channel-item active"># roleplay</div>
+                        <div class="channel-item"># economia</div>
+                        <div class="channel-item"># cripto</div>
+                      </div>
+                    </div>
+                    <div class="discord-content">
+                      <div class="discord-header">
+                        <span># roleplay</span>
+                        <div class="discord-icons">
+                          <i class="fas fa-users"></i>
+                          <span>1,247</span>
+                        </div>
+                      </div>
+                      <div class="discord-messages">
+                        <div class="message">
+                          <div class="message-avatar"></div>
+                          <div class="message-content">
+                            <div class="message-author">Silver</div>
+                            <div class="message-text">Sistema de economía actualizado! 💰</div>
+                          </div>
+                        </div>
+                        <div class="message">
+                          <div class="message-avatar bot"></div>
+                          <div class="message-content">
+                            <div class="message-author">LA Bot <span class="bot-tag">BOT</span></div>
+                            <div class="message-text">Tu balance: $50,000 | Crypto: 0.5 BTC</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <h3 class="project-title">
+                  <i class="fab fa-discord"></i>
+                  Los Angeles Spanish RP Bot
+                </h3>
+                <p class="project-description">
+                  Bot avanzado de Discord para servidor de roleplay con sistema completo de economía, 
+                  criptomonedas, trabajos, propiedades y múltiples funciones de administración.
+                </p>
+                
+                <div class="project-features">
+                  <div class="feature">
+                    <i class="fas fa-coins"></i>
+                    <span>Economía</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fab fa-bitcoin"></i>
+                    <span>Crypto</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Roleplay</span>
+                  </div>
+                </div>
+                
+                <div class="project-tech">
+                  <span class="tech-tag discord">Discord.js</span>
+                  <span class="tech-tag node">Node.js</span>
+                  <span class="tech-tag mongo">MongoDB</span>
+                  <span class="tech-tag api">APIs</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-header">
+                <div class="project-status">
+                  <span class="status-badge">En Desarrollo</span>
+                  <span class="project-year">2024</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="action-btn demo disabled" title="En Desarrollo">
+                    <i class="fas fa-code"></i>
+                  </a>
+                  <a href="#" class="action-btn code disabled" title="Código Privado">
+                    <i class="fas fa-lock"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="project-preview">
+                <div class="project-mockup">
+                  <div class="mockup-roblox">
+                    <div class="roblox-header">
+                      <div class="roblox-logo">
+                        <i class="fas fa-cube"></i>
+                        <span>ERLC Moderation</span>
+                      </div>
+                      <div class="roblox-status">
+                        <span class="status-dot"></span>
+                        <span>En Desarrollo</span>
+                      </div>
+                    </div>
+                    <div class="roblox-content">
+                      <div class="mod-panel">
+                        <div class="mod-section">
+                          <h4>Sistema de Moderación</h4>
+                          <div class="mod-features">
+                            <div class="mod-feature">
+                              <i class="fas fa-ban"></i>
+                              <span>Auto-Ban</span>
+                            </div>
+                            <div class="mod-feature">
+                              <i class="fas fa-shield-alt"></i>
+                              <span>Anti-Exploits</span>
+                            </div>
+                            <div class="mod-feature">
+                              <i class="fas fa-eye"></i>
+                              <span>Logs Sistema</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <h3 class="project-title">
+                  <i class="fas fa-shield-alt"></i>
+                  ERLC Moderation System
+                </h3>
+                <p class="project-description">
+                  Sistema avanzado de moderación para Emergency Response: Liberty County (ERLC) 
+                  con detección automática de exploits, sistema de reportes y logs detallados.
+                </p>
+                
+                <div class="project-features">
+                  <div class="feature">
+                    <i class="fas fa-robot"></i>
+                    <span>Auto-Mod</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fas fa-bug"></i>
+                    <span>Anti-Exploit</span>
+                  </div>
+                  <div class="feature">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Reportes</span>
+                  </div>
+                </div>
+                
+                <div class="project-tech">
+                  <span class="tech-tag lua">Lua</span>
+                  <span class="tech-tag roblox">Roblox Studio</span>
+                  <span class="tech-tag http">HTTP Service</span>
+                  <span class="tech-tag webhook">Webhooks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">¿Listo para colaborar?</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Transformemos tu idea en realidad digital</p>
+          </div>
+          
+          <div class="contact-wrapper">
+            <div class="contact-hero">
+              <div class="contact-animation">
+                <div class="floating-elements">
+                  <div class="element element-1">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="element element-2">
+                    <i class="fab fa-discord"></i>
+                  </div>
+                  <div class="element element-3">
+                    <i class="fas fa-globe"></i>
+                  </div>
+                  <div class="element element-4">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                </div>
+                <div class="contact-main-text">
+                  <h3>¡Hablemos!</h3>
+                  <p>¿Necesitas un bot de Discord, una página web o un sistema personalizado?</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-grid">
+              <div class="contact-methods">
+                <h4>Formas de contacto</h4>
+                
+                <div class="contact-method primary">
+                  <div class="method-icon">
+                    <i class="fab fa-discord"></i>
+                  </div>
+                  <div class="method-info">
+                    <h5>Discord</h5>
+                    <p>La forma más rápida</p>
+                    <a href="https://discord.gg/HM4ybusBA2" target="_blank" class="method-link">
+                      silver6851
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="contact-method">
+                  <div class="method-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="method-info">
+                    <h5>Email</h5>
+                    <p>Para proyectos formales</p>
+                    <span class="method-text">Envía un mensaje con el formulario</span>
+                  </div>
+                </div>
+                
+                <div class="location-info">
+                  <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="location-text">
+                    <span>📍 Medellín, Colombia</span>
+                    <span class="timezone">🕐 UTC-5 (Hora Colombia)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="contact-form-container">
+                <div class="form-header">
+                  <h4>Envía un mensaje</h4>
+                  <p>Cuéntame sobre tu proyecto</p>
+                </div>
+                
+                <form class="contact-form-new">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="name">Nombre</label>
+                      <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="project">Tipo de Proyecto</label>
+                    <select id="project" name="project" required>
+                      <option value="">Selecciona un tipo</option>
+                      <option value="discord-bot">🤖 Bot de Discord</option>
+                      <option value="website">🌐 Página Web</option>
+                      <option value="system">⚙️ Sistema Personalizado</option>
+                      <option value="roblox">🎮 Script de Roblox</option>
+                      <option value="other">💡 Otro</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="budget">Presupuesto Estimado</label>
+                    <select id="budget" name="budget">
+                      <option value="">Selecciona un rango</option>
+                      <option value="under-100">💰 Menos de $100 USD</option>
+                      <option value="100-500">💰💰 $100 - $500 USD</option>
+                      <option value="500-1000">💰💰💰 $500 - $1000 USD</option>
+                      <option value="over-1000">💰💰💰💰 Más de $1000 USD</option>
+                      <option value="discuss">🤝 Hablemos</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="message">Descripción del Proyecto</label>
+                    <textarea id="message" name="message" rows="4" 
+                             placeholder="Cuéntame sobre tu proyecto, funcionalidades que necesitas, plazos, etc." required></textarea>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">
+                    <span class="btn-text">Enviar Mensaje</span>
+                    <span class="btn-icon">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <div class="btn-loading">
+                      <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                  </button>
+                </form>
+              </div>
+            </div>
+            
+            <div class="contact-footer">
+              <div class="social-section">
+                <h5>Sígueme en</h5>
+                <div class="social-links-new">
+                  <a href="https://github.com/silver" target="_blank" class="social-link github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://discord.gg/HM4ybusBA2" target="_blank" class="social-link discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="availability">
+                <div class="status-indicator">
+                  <div class="status-dot available"></div>
+                  <span>Disponible para proyectos</span>
+                </div>
+                <p>Tiempo de respuesta promedio: <strong>2-4 horas</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2025 Silver. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
