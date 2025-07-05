@@ -269,7 +269,11 @@ function initScrollAnimations() {
   }, observerOptions);
 
   // Observar elementos animables
-  const animatedElements = document.querySelectorAll('.skill-item, .project-card, .stat-item, .contact-item, .about-text, .about-image');
+  const animatedElements = document.querySelectorAll(
+    '.skill-item, .project-card, .stat-item, .contact-item, ' +
+    '.about-intro, .description-item, .about-skills-preview, ' +
+    '.featured-project, .card-header, .card-content'
+  );
   
   animatedElements.forEach(el => {
     el.style.opacity = '0';
